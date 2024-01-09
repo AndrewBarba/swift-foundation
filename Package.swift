@@ -93,7 +93,11 @@ let package = Package(
                 .product(name: "SwiftOperators", package: "swift-syntax"),
                 .product(name: "SwiftParser", package: "swift-syntax"),
                 .product(name: "SwiftParserDiagnostics", package: "swift-syntax"),
-                .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
+                .product(
+                    name: "SwiftCompilerPlugin",
+                    package: "swift-syntax",
+                    condition: .when(platforms: [.macOS, .macCatalyst, .iOS, .tvOS, .watchOS, .visionOS, .driverKit, .linux])
+                ),
             ],
             swiftSettings: [
                 .enableExperimentalFeature("AccessLevelOnImport")
